@@ -50,6 +50,7 @@ local function create_window()
   set_keymap('a', ':lua require("lua-nvim-todo.window").add_todo()<CR>')
   set_keymap('t', ':lua require("lua-nvim-todo.window").toggle_todo()<CR>')
   set_keymap('d', ':lua require("lua-nvim-todo.window").delete_todo()<CR>')
+  set_keymap('<CR>', ':lua require("lua-nvim-todo.window").toggle_todo_line()<CR>')
 end
 
 function M.toggle()
@@ -57,6 +58,15 @@ function M.toggle()
     M.close()
   else
     create_window()
+    M.update()
+  end
+end
+
+function M.toggle_todo_line()
+  local cur_line = api.nvim_win_get_cursor(win)[1]
+  local id = tonumber(api.nvim_buf_get_lines(buf, cur_line - 1, cur_line, false)[1]:match("^%s*%d+"))
+  if id then
+    todo.toggle_todo(id)
     M.update()
   end
 end
