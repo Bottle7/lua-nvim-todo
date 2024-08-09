@@ -45,7 +45,7 @@ function M.list_todos()
   else
     for _, todo in ipairs(M.todos) do
       local status = todo.completed and "[x]" or "[ ]"
-      print(string.format("\t%s %d. %s", status, todo.id, todo.title))
+      print(string.format("%s %d. %s", status, todo.id, todo.title))
     end
   end
 end
@@ -86,7 +86,7 @@ function M.get_todos_text()
   else
     for _, todo in ipairs(M.todos) do
       local status = todo.completed and "[x]" or "[ ]"
-      table.insert(lines, string.format("%s %d. %s", status, todo.id, todo.title))
+      table.insert(lines, string.format("\t%s %d. %s", status, todo.id, todo.title))
     end
   end
   table.insert(lines, "")
