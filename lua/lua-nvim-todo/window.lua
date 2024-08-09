@@ -100,7 +100,7 @@ function M.close()
 end
 
 function M.add_todo()
-  local title = vim.fn.input("Enter todo title: ")
+  local title = vim.fn.input("Enter todo: ")
   if title ~= "" then
     todo.add_todo(title)
     M.update()
