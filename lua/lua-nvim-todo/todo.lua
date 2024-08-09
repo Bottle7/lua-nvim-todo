@@ -36,7 +36,7 @@ function M.add_todo(title)
   table.insert(M.todos, todo)
   M.next_id = M.next_id + 1
   M.save_todos()
-  print("\n Todo added successfully!")
+  print("\nTodo added successfully!")
 end
 
 function M.list_todos()
@@ -45,7 +45,7 @@ function M.list_todos()
   else
     for _, todo in ipairs(M.todos) do
       local status = todo.completed and "[x]" or "[ ]"
-      print(string.format("%s %d. %s", status, todo.id, todo.title))
+      print(string.format("\t%s %d. %s", status, todo.id, todo.title))
     end
   end
 end
@@ -55,7 +55,7 @@ function M.toggle_todo(id)
     if todo.id == id then
       todo.completed = not todo.completed
       M.save_todos()
-      print("\n Todo toggled successfully!")
+      print("\nTodo toggled successfully!")
       return
     end
   end
@@ -71,7 +71,7 @@ function M.remove_todo(id)
         t.id = ind
       end
       M.save_todos()
-      print("\n Todo removed successfully!")
+      print("\nTodo removed successfully!")
       return
     end
   end
