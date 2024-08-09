@@ -46,10 +46,10 @@ local function create_window()
     api.nvim_buf_set_keymap(buf, 'n', key, action, { noremap = true, silent = true })
   end
 
-  set_keymap('q', ':lua require("todo-app.window").close()<CR>')
-  set_keymap('a', ':lua require("todo-app.window").add_todo()<CR>')
-  set_keymap('t', ':lua require("todo-app.window").toggle_todo()<CR>')
-  set_keymap('d', ':lua require("todo-app.window").delete_todo()<CR>')
+  set_keymap('q', ':lua require("lua-nvim-todo.window").close()<CR>')
+  set_keymap('a', ':lua require("lua-nvim-todo.window").add_todo()<CR>')
+  set_keymap('t', ':lua require("lua-nvim-todo.window").toggle_todo()<CR>')
+  set_keymap('d', ':lua require("lua-nvim-todo.window").delete_todo()<CR>')
 end
 
 function M.toggle()
