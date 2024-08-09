@@ -48,7 +48,7 @@ local function create_window()
 
   set_keymap('q', ':lua require("lua-nvim-todo.window").close()<CR>')
   set_keymap('a', ':lua require("lua-nvim-todo.window").add_todo()<CR>')
-  set_keymap('t', ':lua require("lua-nvim-todo.window").toggle_todo()<CR>')
+  set_keymap('t', ':lua require("lua-nvim-todo.window").toggle_todo_line()<CR>')
   set_keymap('d', ':lua require("lua-nvim-todo.window").remove_todo_line()<CR>')
   set_keymap('<CR>', ':lua require("lua-nvim-todo.window").toggle_todo_line()<CR>')
 end
