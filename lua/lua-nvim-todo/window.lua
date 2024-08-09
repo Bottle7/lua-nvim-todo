@@ -64,7 +64,8 @@ end
 
 function M.toggle_todo_line()
   local cur_line = api.nvim_win_get_cursor(win)[1]
-  local id = tonumber(api.nvim_buf_get_lines(buf, cur_line - 1, cur_line, false)[1]:match("^%s*%d+"))
+  local line = api.nvim_buf_get_lines(buf, cur_line - 1, cur_line, false)[1]
+  local id = tonumber(line:match("%[[ xX]%]%s*(%d+)%.%s+")) -- <- Don't touch this
   if id then
     todo.toggle_todo(id)
     M.update()

@@ -55,7 +55,7 @@ function M.toggle_todo(id)
     if todo.id == id then
       todo.completed = not todo.completed
       M.save_todos()
-      print("Todo toggled successfully!")
+      print(" Todo toggled successfully!")
       return
     end
   end
