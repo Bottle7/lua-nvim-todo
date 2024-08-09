@@ -36,7 +36,7 @@ function M.add_todo(title)
   table.insert(M.todos, todo)
   M.next_id = M.next_id + 1
   M.save_todos()
-  print("Todo added successfully!")
+  print(" Todo added successfully!")
 end
 
 function M.list_todos()
@@ -79,7 +79,7 @@ function M.remove_todo(id)
 end
 
 function M.get_todos_text()
-  local lines = {"=== Todo List ==="}
+  local lines = {"          === Todo List ==="}
   if #M.todos == 0 then
     table.insert(lines, "No todos found.")
   else
