@@ -81,7 +81,7 @@ end
 function M.get_todos_text()
   local lines = {""}
   if #M.todos == 0 then
-    table.insert(lines, "No todos found.")
+    table.insert(lines, "\t\tNo todos found.")
   else
     for _, todo in ipairs(M.todos) do
       local status = todo.completed and "[x]" or "[ ]"
