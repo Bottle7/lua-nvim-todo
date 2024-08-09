@@ -24,7 +24,7 @@ local function deserialize(str)
 end
 
 local function get_save_path()
-  return vim.fn.stdpath('data') .. 'lua-nvim-todo-data.json'
+  return vim.fn.stdpath('data') .. 'todo-data.json'
 end
 
 function M.add_todo(title)
