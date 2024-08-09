@@ -24,6 +24,7 @@ local function create_commands()
 end
 
 local function setup()
+  todo.load_todos()
   create_commands()
 end
 
