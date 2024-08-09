@@ -107,20 +107,4 @@ function M.add_todo()
   end
 end
 
-function M.toggle_todo()
-  local id = tonumber(vim.fn.input("Enter todo ID to toggle: "))
-  if id then
-    todo.toggle_todo(id)
-    M.update()
-  end
-end
-
-function M.delete_todo()
-  local id = tonumber(vim.fn.input("Enter todo ID to delete: "))
-  if id then
-    todo.remove_todo(id)
-    M.update()
-  end
-end
-
 return M

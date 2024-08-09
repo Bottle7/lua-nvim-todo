@@ -79,7 +79,7 @@ function M.remove_todo(id)
 end
 
 function M.get_todos_text()
-  local lines = {"=== Todo List ==="}
+  local lines = {"\t\t\t=== Todo List ===\n"}
   if #M.todos == 0 then
     table.insert(lines, "No todos found.")
   else
