@@ -80,7 +80,6 @@ end
 
 function M.get_todos_text()
   local lines = {""}
-  table.insert(lines, "\t\t=== Todo List ===")
   table.insert(lines, "")
   if #M.todos == 0 then
     table.insert(lines, "No todos found.")

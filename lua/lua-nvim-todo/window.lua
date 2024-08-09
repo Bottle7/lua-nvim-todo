@@ -26,6 +26,8 @@ local function create_window()
   -- Set some options
   local opts = {
     style = "minimal",
+    title = "Todo List",
+    title_pos = "center",
     relative = "editor",
     width = win_width,
     height = win_height,
