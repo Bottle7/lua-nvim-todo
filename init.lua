@@ -1,5 +1,5 @@
-local todo = require('todo-app.todo')
-local window = require('todo-app.window')
+local todo = require('lua-nvim-todo.todo')
+local window = require('lua-nvim-todo.window')
 
 local function create_commands()
   vim.api.nvim_create_user_command('TodoAdd', function(opts)
