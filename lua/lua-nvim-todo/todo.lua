@@ -1,8 +1,27 @@
 local M = {}
-local json = require("cjson")
 
 M.todos = {}
 M.next_id = 1
+
+local function serialize(data)
+  local result = "return {"
+  result = result .. "todos={"
+  for _, todo in ipairs(data.todos) do
+    result = result .. string.format("{id=%d,title=%q,completed=%s},", todo.id, todo.title, tostring(todo.completed))
+  end
+  result = result .. "},"
+  result = result .. string.format("next_id=%d", data.next_id)
+  result = result .. "}"
+  return result
+end
+
+local function deserialize(str)
+  local chunk = loadstring(str)
+  if chunk then
+    return chunk()
+  end
+  return nil
+end
 
 local function get_save_path()
   return vim.fn.stdpath('data') .. 'lua-nvim-todo-data.json'
@@ -73,7 +92,7 @@ end
 function M.save_todos()
   local file = io.open(get_save_path(), 'w')
   if file then
-    file:write(json.encode({ todos = M.todos, next_id = M.next_id}))
+    file:write(serialize({ todos = M.todos, next_id = M.next_id}))
     file:close()
   end
 end
@@ -84,7 +103,7 @@ function M.load_todos()
     local content = file:read('*all')
     file:close()
     if content and content ~= "" then
-      local data = json.decode(content)
+      local data = deserialize(content)
       M.todos = data.todos or {}
       M.next_id = data.next_id or 1
     end
