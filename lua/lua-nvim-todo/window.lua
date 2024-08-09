@@ -1,5 +1,5 @@
 local api = vim.api
-local todo = require('todo-app.todo')
+local todo = require('lua-nvim-todo.todo')
 
 local M = {}
 
