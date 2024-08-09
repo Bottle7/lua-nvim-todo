@@ -72,6 +72,16 @@ function M.toggle_todo_line()
   end
 end
 
+function M.remove_todo_line()
+  local cur_line = api.nvim_win_get_cursor(win)[1]
+  local line = api.nvim_buf_get_lines(buf, cur_line - 1, cur_line, false)[1]
+  local id = tonumber(line:match("%[[ xX]%]%s*(%d+)%.%s+")) -- <- Don't touch this
+  if id then
+    todo.delete_todo(id)
+    M.update()
+  end
+end
+
 function M.update()
   if win and api.nvim_win_is_valid(win) then
     local lines = todo.get_todos_text()
