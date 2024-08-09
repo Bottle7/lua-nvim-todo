@@ -68,7 +68,7 @@ function M.remove_todo(id)
       table.remove(M.todos, i)
       M.next_id = M.next_id - 1
       for ind, t in ipairs(M.todos) do
-        t.id = ind + 1
+        t.id = ind
       end
       M.save_todos()
       print(" Todo removed successfully!")
