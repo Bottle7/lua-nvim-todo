@@ -16,8 +16,8 @@ local function create_window()
   local height = api.nvim_get_option("lines")
 
   -- Calculate floating window size
-  local win_height = math.ceil(height * 0.8 - 4)
-  local win_width = math.ceil(width * 0.8)
+  local win_height = math.ceil(height * 0.6 - 4)
+  local win_width = math.ceil(width * 0.6)
 
   -- Calculate starting position
   local row = math.ceil((height - win_height) / 2 - 1)
