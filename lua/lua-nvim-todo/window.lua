@@ -41,7 +41,7 @@ local function create_window()
 
   -- Set buffer options
   api.nvim_buf_set_option(buf, 'modifiable', false)
-  api.nvim_buf_set_option(buf, 'filetype', 'todo-app')
+  api.nvim_buf_set_option(buf, 'filetype', 'markdown')
 
   -- Set buffer keymaps
   local function set_keymap(key, action)
